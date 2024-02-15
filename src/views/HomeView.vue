@@ -1,10 +1,16 @@
 <template>
-  <div class="flex flex-col h-screen overflow-auto items-baseline justify-between p-5 md:p-20 crt bg-black font-mono text-green-500">
-    <div class="leading-none">
-      <pre>{{ terminalHeader }}</pre>
-      <pre>{{ contentText }}</pre>
+  <div class="flex flex-col h-screen overflow-auto items-baseline justify-between p-5 xl:px-40 xl:py-20 crt bg-black font-mono text-green-500">
+    <div class="leading-none w-full">
+      <div class="flex justify-between flex-wrap">
+        <pre>{{ terminalHeader }}</pre>
+        <div class="flex gap-2 mb-4">
+          <ascii-button ref="linkedInButton" label="LinkedIn" manual-display @click="openLinkedIn" />
+          <ascii-button ref="gitHubButton" label="GitHub" manual-display @click="openGitHub" />
+        </div>
+      </div>
+      <pre class="whitespace-pre-wrap">{{ contentText }}</pre>
     </div>
-    <div>
+    <div class="w-full pb-5">
       <pre class="text-red-500 leading-none">{{ errorText }}</pre>
       <div class="relative w-full">
         <span class="absolute top-1"> > </span>
@@ -23,10 +29,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import AsciiButton from '@/components/AsciiButton.vue';
 import text from '@/util/text';
+import display from '@/util/display';
 
 const input = ref({} as HTMLInputElement);
+const linkedInButton = ref({} as InstanceType<typeof AsciiButton>);
+const gitHubButton = ref({} as InstanceType<typeof AsciiButton>);
 
 const terminalHeader = ref('');
 const contentText = ref('');
@@ -36,44 +46,7 @@ const inputText = ref('');
 const pastCommands: Array<string> = [];
 let pastCommandsIndex: number | undefined;
 
-let cancelPreviousDisplay = () => {}; // Function to cancel the previous display
-
-const display = async (displayThis: string[] | string, where: Ref<string>, speed: number): Promise<void> => {
-  // Cancel any previous display that might still be running
-  cancelPreviousDisplay();
-
-  // A new promise that resolves when the current display execution is cancelled
-  let cancelled = false;
-  cancelPreviousDisplay = () => {
-    cancelled = true;
-  };
-
-  where.value = '';
-  const formattedDisplayThis = typeof displayThis === 'string' ? displayThis : displayThis.join('\n');
-
-  const promises: Promise<void>[] = [];
-
-  for (let i = 0; i < formattedDisplayThis.length; i++) {
-    const promise = new Promise<void>((resolve) => {
-      setTimeout(() => {
-        if (cancelled) return; // If cancelled, do not proceed
-        where.value += formattedDisplayThis.charAt(i);
-        resolve();
-      }, i * speed);
-    });
-
-    promises.push(promise);
-  }
-
-  await Promise.all(promises).finally(() => {
-    // When all promises complete or the function is cancelled, consider the display not running
-    if (!cancelled) {
-      cancelPreviousDisplay = () => {}; // Reset the cancel function
-    }
-  });
-};
-
-const parse = () => {
+const parse = async () => {
   pastCommands.push(inputText.value);
   pastCommandsIndex = undefined;
 
@@ -82,9 +55,9 @@ const parse = () => {
 
   if (keys.includes(trimmed)) {
     errorText.value = '';
-    display(text[trimmed], contentText, 25);
+    await display(text[trimmed], contentText, 25);
   } else {
-    display('Command not found. Type "menu" for options.', errorText, 25);
+    await display('Command not found. Type "menu" for options.', errorText, 25);
   }
   inputText.value = '';
 };
@@ -113,13 +86,31 @@ const downPressed = () => {
   }
 };
 
-onMounted(() => {
+const openLinkedIn = () => {
+  window.open('https://www.linkedin.com/in/narooop/', '_blank');
+};
+
+const openGitHub = () => {
+  window.open('https://github.com/naroop', '_blank');
+};
+
+onMounted(async () => {
+  // display(text['about'], contentText, 0);
   input.value.disabled = true;
-  display(text.header, terminalHeader, 10).then(() => {
-    display('Type "menu" below, then press enter.', contentText, 25);
-    input.value.disabled = false;
-    input.value.focus();
-  });
+  document.addEventListener(
+    'click',
+    () => {
+      input.value?.focus();
+    },
+    true
+  ); // make terminal input always focused
+
+  await display(text.header, terminalHeader, 10);
+  await display('Type "menu" below, then press enter.', contentText, 25);
+  input.value.disabled = false;
+  input.value.focus();
+  await gitHubButton.value.display();
+  await linkedInButton.value.display();
 });
 </script>
 
