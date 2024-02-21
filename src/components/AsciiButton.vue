@@ -5,7 +5,7 @@
     @mousedown="toggleMouseDown"
     @mouseup="toggleMouseDown"
   >
-    <pre>{{ buttonContent }}</pre>
+    <pre class="text-left">{{ buttonContent }}</pre>
   </button>
 </template>
 
@@ -20,7 +20,7 @@ const buttonContent = ref('');
 const isMouseDown = ref(false);
 
 defineExpose({
-  display: () => display(buildButtonContent(props.label), buttonContent, 50)
+  display: () => display(buildButtonContent(props.label), buttonContent, 50, false)
 });
 
 const buildButtonContent = (text: string) => {
@@ -53,7 +53,7 @@ const toggleMouseDown = () => {
 
 onMounted(() => {
   if (!props.manualDisplay) {
-    display(buildButtonContent(props.label), buttonContent, 50);
+    display(buildButtonContent(props.label), buttonContent, 25, false);
   }
 });
 </script>

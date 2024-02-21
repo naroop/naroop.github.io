@@ -10,7 +10,8 @@ import { onMounted, ref, watch } from 'vue';
 const contentOne = ref('');
 
 const c1 = `
-Type "menu" below, then press enter.
+phone number: (417) 861-3406
+email: nrupp815@outlook.com
 `;
 
 const showContent = () => {

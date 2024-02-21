@@ -5,8 +5,8 @@ let cancelPreviousDisplay = () => {}; // Function to cancel the previous display
 const display = async (
   displayThis: string[] | string,
   where: Ref<string>,
-  speed: number,
-  allowCancel: boolean = false // Add allowCancel parameter with default value true
+  speed: number = 25,
+  allowCancel: boolean = true // Add allowCancel parameter with default value true
 ): Promise<void> => {
   // Cancel any previous display that might still be running
   if (allowCancel) {

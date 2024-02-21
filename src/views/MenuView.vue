@@ -10,7 +10,14 @@ import { onMounted, ref, watch } from 'vue';
 const contentOne = ref('');
 
 const c1 = `
-Type "menu" below, then press enter.
++-+-+-+-+
+|M|e|n|u|
++-+-+-+-+
+
+ - about
+ - projects
+ - contact
+ - resume
 `;
 
 const showContent = () => {
