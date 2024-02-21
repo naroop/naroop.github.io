@@ -3,14 +3,15 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store';
-import display from '@/util/display';
 import { onMounted, ref, watch } from 'vue';
+import resume from '@/assets/nathanielresume.pdf';
+import display from '@/util/display';
+import { useStore } from '@/store';
 
 const contentOne = ref('');
 
 const c1 = `
-Type "menu" below, then press enter.
+Opening resume in another tab...
 `;
 
 const showContent = () => {
@@ -20,12 +21,14 @@ const showContent = () => {
 onMounted(() => {
   if (useStore().doneDisplayingHeader) {
     showContent();
+    window.open(resume, '_blank');
   } else {
     const unwatch = watch(
       () => useStore().doneDisplayingHeader,
       (newValue) => {
         if (newValue) {
           showContent();
+          window.open(resume, '_blank');
           unwatch();
         }
       }
