@@ -1,6 +1,6 @@
 <template>
   <pre>{{ contentOne }}</pre>
-  <div class="flex flex-col md:flex-row flex-wrap gap-5 items-center">
+  <div class="flex flex-wrap gap-5">
     <ascii-card
       v-for="c in contentTwo"
       :key="c.title"
@@ -34,14 +34,19 @@ interface AsciiCardConfig {
 const contentOne = ref('');
 const contentTwo = ref([] as Array<AsciiCardConfig>);
 
-const c1 = ``;
+const c1 = `
++-+-+-+-+-+-+-+-+
+|P|r|o|j|e|c|t|s|
++-+-+-+-+-+-+-+-+
+
+`;
 
 const c2: Array<AsciiCardConfig> = [
   {
     image: snipbit,
     title: 'Snipbit',
     subtitle: '[Vue, TypeScript, Tailwind, PocketBase]',
-    description: 'A social media platform for developers to store and share code snippets, with a live HTML/JS/CSS editor.',
+    description: 'A social media platform for developers to store and share code snippets.',
     buttonConfig: [
       { label: 'More Info', onClick: () => window.open('https://devpost.com/software/snipbit-sc0au4', '_blank') },
       { label: 'Try it Out', onClick: () => window.open('https://snipbit.pockethost.io/#/', '_blank') }

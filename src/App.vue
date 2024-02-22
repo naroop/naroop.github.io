@@ -1,17 +1,17 @@
 <template>
-  <div class="flex flex-col h-screen overflow-auto items-baseline justify-between xl:px-52 xl:py-20 crt bg-black font-mono text-green-500 relative">
+  <div class="flex flex-col h-screen overflow-auto items-baseline justify-between crt bg-black font-mono text-green-500">
     <div class="leading-none w-full">
       <div class="flex justify-between flex-wrap">
         <div>
-          <pre class="hidden md:block">{{ terminalHeader }}</pre>
+          <pre class="hidden md:block">{{ headerText }}</pre>
           <pre class="md:hidden text-xs leading-none">{{ terminalHeaderNathaniel }}</pre>
           <pre class="md:hidden text-xs leading-none">{{ terminalHeaderRupp }}</pre>
 
           <pre class="hidden md:block">{{ subtitleText }}</pre>
-          <pre>{{ coolLinesOne }}</pre>
-          <pre>{{ coolLinesTwo }}</pre>
+          <pre class="hidden md:block">{{ coolLinesOne }}</pre>
+          <pre class="hidden md:block">{{ coolLinesTwo }}</pre>
         </div>
-        <div class="flex gap-2 mb-4">
+        <div class="flex gap-2 md:mb-4">
           <ascii-button ref="linkedInButton" label="LinkedIn" manual-display @click="openLinkedIn" />
           <ascii-button ref="gitHubButton" label="GitHub" manual-display @click="openGitHub" />
         </div>
@@ -20,7 +20,7 @@
         <router-view />
       </div>
     </div>
-    <div class="absolute bottom-0 bg-white w-full pb-5">
+    <div class="pb-5">
       <pre class="text-red-500 leading-none">{{ errorText }}</pre>
       <div class="relative w-full">
         <span class="absolute top-1"> > </span>
@@ -67,8 +67,7 @@ const terminalHeader = `
                                                         |_|   |_|
 `;
 
-const terminalHeaderNathaniel = `
-             _   _                 _      _ 
+const terminalHeaderNathaniel = `             _   _                 _      _ 
  _ __   __ _| |_| |__   __ _ _ __ (_) ___| |
 | '_ \\ / _\` | __| '_ \\ / _\` | '_ \\| |/ _ \\ |
 | | | | (_| | |_| | | | (_| | | | | |  __/ |
@@ -161,7 +160,7 @@ onMounted(async () => {
 <style>
 html,
 body {
-  height: 100;
+  height: 100%;
 }
 
 /* Styles for the scrollbar track (background) */

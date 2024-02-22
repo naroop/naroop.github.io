@@ -1,11 +1,11 @@
 <template>
-  <div class="w-[423.85px] flex flex-col items-center">
+  <div class="flex flex-col items-center">
     <pre>{{ topText }}</pre>
-    <div class="flex flex-col px-2 items-center">
-      <img :src="image" :class="['h-auto transition-opacity w-96', showImage ? 'opacity-100' : 'opacity-0']" />
+    <div class="flex flex-col px-2 items-center w-[21rem]">
+      <img :src="image" :class="['h-auto transition-opacity', showImage ? 'opacity-100' : 'opacity-0']" />
       <pre class="font-bold mt-2">{{ titleText }}</pre>
-      <pre class="whitespace-pre-wrap">{{ subtitleText }}</pre>
-      <pre class="whitespace-pre-wrap px-3">
+      <pre class="whitespace-pre-wrap text-xs leading-none">{{ subtitleText }}</pre>
+      <pre class="whitespace-pre-wrap">
 
 {{ descriptionText }}
     </pre
