@@ -1,11 +1,11 @@
 <template>
-  <div class="w-96">
+  <div class="w-[423.85px] flex flex-col items-center">
     <pre>{{ topText }}</pre>
-    <div class="px-2">
-      <img :src="image" :class="['h-auto transition-opacity w-full', showImage ? 'opacity-100' : 'opacity-0']" />
-      <pre class="font-bold">{{ titleText }}</pre>
+    <div class="flex flex-col px-2 items-center">
+      <img :src="image" :class="['h-auto transition-opacity w-96', showImage ? 'opacity-100' : 'opacity-0']" />
+      <pre class="font-bold mt-2">{{ titleText }}</pre>
       <pre class="whitespace-pre-wrap">{{ subtitleText }}</pre>
-      <pre class="whitespace-pre-wrap">
+      <pre class="whitespace-pre-wrap px-3">
 
 {{ descriptionText }}
     </pre
@@ -44,8 +44,8 @@ const descriptionText = ref('');
 const bottomText = ref('');
 const showImage = ref(false);
 
-const top = `,------------------------------------------,`;
-const bottom = `'------------------------------------------'`;
+const top = `,--------------------------------------,`;
+const bottom = `'--------------------------------------'`;
 
 // defineExpose({
 //   display: () => display(buildButtonContent(props.label), buttonContent, 50, false)

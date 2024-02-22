@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-screen overflow-auto items-baseline justify-between p-5 xl:px-52 xl:py-20 crt bg-black font-mono text-green-500">
+  <div class="flex flex-col h-screen overflow-auto items-baseline justify-between xl:px-52 xl:py-20 crt bg-black font-mono text-green-500 relative">
     <div class="leading-none w-full">
       <div class="flex justify-between flex-wrap">
         <div>
@@ -16,11 +16,11 @@
           <ascii-button ref="gitHubButton" label="GitHub" manual-display @click="openGitHub" />
         </div>
       </div>
-      <div class="whitespace-pre-wrap">
+      <div class="flex flex-col whitespace-pre-wrap">
         <router-view />
       </div>
     </div>
-    <div class="w-full pb-5">
+    <div class="absolute bottom-0 bg-white w-full pb-5">
       <pre class="text-red-500 leading-none">{{ errorText }}</pre>
       <div class="relative w-full">
         <span class="absolute top-1"> > </span>
@@ -146,14 +146,14 @@ onMounted(async () => {
     true
   ); // make terminal input always focused
 
-  display(topLines, coolLinesOne, 25, false);
-  await display(bottomLines, coolLinesTwo, 25, false);
   await display(terminalHeader, headerText, 10, false);
   await display(terminalSubtitle, subtitleText, 25, false);
-  input.value.disabled = false;
-  input.value.focus();
+  display(topLines, coolLinesOne, 25, false);
+  display(bottomLines, coolLinesTwo, 25, false);
   await gitHubButton.value.display();
   await linkedInButton.value.display();
+  input.value.disabled = false;
+  input.value.focus();
   useStore().doneDisplayingHeader = true;
 });
 </script>

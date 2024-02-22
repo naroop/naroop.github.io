@@ -1,6 +1,6 @@
 <template>
   <pre>{{ contentOne }}</pre>
-  <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-y-4">
+  <div class="flex flex-col md:flex-row flex-wrap gap-5 items-center">
     <ascii-card
       v-for="c in contentTwo"
       :key="c.title"
@@ -41,7 +41,7 @@ const c2: Array<AsciiCardConfig> = [
     image: snipbit,
     title: 'Snipbit',
     subtitle: '[Vue, TypeScript, Tailwind, PocketBase]',
-    description: 'A social media platform for developers to store and share code snippets.',
+    description: 'A social media platform for developers to store and share code snippets, with a live HTML/JS/CSS editor.',
     buttonConfig: [
       { label: 'More Info', onClick: () => window.open('https://devpost.com/software/snipbit-sc0au4', '_blank') },
       { label: 'Try it Out', onClick: () => window.open('https://snipbit.pockethost.io/#/', '_blank') }
@@ -67,7 +67,7 @@ const c2: Array<AsciiCardConfig> = [
   {
     image: eoe,
     title: 'Echoes of Existence',
-    subtitle: '[Godot, GDScript, Procedural Generation, Pathfinding]',
+    subtitle: '[Godot, GDScript]',
     description: 'A 2D top-down game where players find and scan plants while fighting off hordes of aliens.',
     buttonConfig: [{ label: 'More Info', onClick: () => window.open('https://naroop.itch.io/echoes-of-existence', '_blank') }]
   }
