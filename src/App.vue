@@ -3,8 +3,11 @@
     <div class="leading-none w-full">
       <div class="flex justify-between flex-wrap">
         <div>
-          <pre>{{ headerText }}</pre>
-          <pre>{{ subtitleText }}</pre>
+          <pre class="hidden md:block">{{ terminalHeader }}</pre>
+          <pre class="md:hidden text-xs leading-none">{{ terminalHeaderNathaniel }}</pre>
+          <pre class="md:hidden text-xs leading-none">{{ terminalHeaderRupp }}</pre>
+
+          <pre class="hidden md:block">{{ subtitleText }}</pre>
           <pre>{{ coolLinesOne }}</pre>
           <pre>{{ coolLinesTwo }}</pre>
         </div>
@@ -62,6 +65,21 @@ const terminalHeader = `
 | | | | (_| | |_| | | | (_| | | | | |  __/ | | |  | |_| | |_) | |_) |
 |_| |_|\\__,_|\\__|_| |_|\\__,_|_| |_|_|\\___|_| |_|   \\__,_| .__/| .__/
                                                         |_|   |_|
+`;
+
+const terminalHeaderNathaniel = `
+             _   _                 _      _ 
+ _ __   __ _| |_| |__   __ _ _ __ (_) ___| |
+| '_ \\ / _\` | __| '_ \\ / _\` | '_ \\| |/ _ \\ |
+| | | | (_| | |_| | | | (_| | | | | |  __/ |
+|_| |_|\\__,_|\\__|_| |_|\\__,_|_| |_|_|\\___|_|
+`;
+
+const terminalHeaderRupp = ` _ __ _   _ _ __  _ __  
+| '__| | | | '_ \\| '_ \\  
+| |  | |_| | |_) | |_) | Full Stack Developer
+|_|   \\__,_| .__/| .__/            
+           |_|   |_|   
 `;
 const terminalSubtitle = `Full Stack Developer`;
 

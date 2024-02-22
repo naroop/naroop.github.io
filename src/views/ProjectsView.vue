@@ -34,10 +34,7 @@ interface AsciiCardConfig {
 const contentOne = ref('');
 const contentTwo = ref([] as Array<AsciiCardConfig>);
 
-const c1 = `
-Here are a few projects I am proud of.
-
-`;
+const c1 = ``;
 
 const c2: Array<AsciiCardConfig> = [
   {
