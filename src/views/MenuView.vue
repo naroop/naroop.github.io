@@ -1,5 +1,5 @@
 <template>
-  <pre>{{ contentOne }}</pre>
+  <pre class="whitespace-pre-wrap">{{ contentOne }}</pre>
 </template>
 
 <script setup lang="ts">
@@ -14,10 +14,12 @@ const c1 = `
 |M|e|n|u|
 +-+-+-+-+
 
- - about
- - projects
- - contact
- - resume
+ (1) about
+ (2) projects
+ (3) contact
+ (4) resume
+
+Type a selection below, then press enter.
 `;
 
 const showContent = () => {
