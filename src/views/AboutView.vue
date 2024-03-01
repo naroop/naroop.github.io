@@ -1,11 +1,8 @@
 <template>
-  <pre class="">{{ contentOne }}</pre>
-  <div class="grid grid-cols-3 md:grid-cols-5 gap-y-4">
-    <div v-for="img in contentTwo" :key="img" class="flex flex-col items-start gap-1">
-      <div class="flex items-center gap-2">
-        <img :src="img" class="w-10 h-auto" />
-        <span> {{ img.slice(12).split('.')[0] }}</span>
-      </div>
+  <pre class="whitespace-pre-wrap">{{ contentOne }}</pre>
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-y-4">
+    <div v-for="c in contentTwo" :key="c.image" class="flex flex-col items-start gap-1">
+      <icon-with-caption :image="c.image" :caption="c.caption" />
     </div>
   </div>
   <pre>{{ contentThree }}</pre>
@@ -25,9 +22,15 @@ import CLogo from '@/assets/C.svg';
 import display from '@/util/display';
 import { onMounted, ref, watch } from 'vue';
 import { useStore } from '@/store';
+import IconWithCaption from '@/components/IconWithCaption.vue';
+
+interface ImageAndCaption {
+  image: string;
+  caption: string;
+}
 
 const contentOne = ref('');
-const contentTwo = ref([] as Array<string>);
+const contentTwo = ref([] as Array<ImageAndCaption>);
 const contentThree = ref('');
 
 const c1 = `
@@ -53,16 +56,27 @@ Front-end web development, back-end development, mobile development, database/se
 
 `;
 
-const c2 = [JSLogo, TypeScriptLogo, HTMLLogo, CSSLogo, SQLLogo, JavaLogo, PythonLogo, SwiftLogo, CSharpLogo, CLogo];
+const c2: Array<ImageAndCaption> = [
+  { image: JSLogo, caption: 'JavaScript' },
+  { image: TypeScriptLogo, caption: 'TypeScript' },
+  { image: HTMLLogo, caption: 'HTML' },
+  { image: CSSLogo, caption: 'CSS' },
+  { image: SQLLogo, caption: 'SQL' },
+  { image: JavaLogo, caption: 'Java' },
+  { image: PythonLogo, caption: 'Python' },
+  { image: SwiftLogo, caption: 'Swift' },
+  { image: CSharpLogo, caption: 'C#' },
+  { image: CLogo, caption: 'C' }
+];
 
 const c3 = `> Technologies`;
 
 const showContent = async () => {
-  await display(c1, contentOne);
+  await display(c1, contentOne, 0);
   for (let i = 0; i < c2.length; i++) {
     setTimeout(() => {
       contentTwo.value.push(c2[i]);
-    }, i * 200);
+    }, i * 500);
   }
 };
 

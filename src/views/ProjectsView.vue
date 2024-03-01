@@ -1,6 +1,6 @@
 <template>
   <pre>{{ contentOne }}</pre>
-  <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-y-4">
+  <div class="flex flex-wrap gap-5">
     <ascii-card
       v-for="c in contentTwo"
       :key="c.title"
@@ -35,7 +35,9 @@ const contentOne = ref('');
 const contentTwo = ref([] as Array<AsciiCardConfig>);
 
 const c1 = `
-Here are a few projects I am proud of.
++-+-+-+-+-+-+-+-+
+|P|r|o|j|e|c|t|s|
++-+-+-+-+-+-+-+-+
 
 `;
 
@@ -70,7 +72,7 @@ const c2: Array<AsciiCardConfig> = [
   {
     image: eoe,
     title: 'Echoes of Existence',
-    subtitle: '[Godot, GDScript, Procedural Generation, Pathfinding]',
+    subtitle: '[Godot, GDScript]',
     description: 'A 2D top-down game where players find and scan plants while fighting off hordes of aliens.',
     buttonConfig: [{ label: 'More Info', onClick: () => window.open('https://naroop.itch.io/echoes-of-existence', '_blank') }]
   }

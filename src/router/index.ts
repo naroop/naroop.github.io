@@ -17,27 +17,27 @@ const router = createRouter({
     },
     {
       path: '/menu',
-      name: Command.MENU,
+      name: Command.MENU.name,
       component: MenuView
     },
     {
       path: '/about',
-      name: Command.ABOUT,
+      name: Command.ABOUT.name,
       component: AboutView
     },
     {
       path: '/projects',
-      name: Command.PROJECTS,
+      name: Command.PROJECTS.name,
       component: ProjectsView
     },
     {
       path: '/contact',
-      name: Command.CONTACT,
+      name: Command.CONTACT.name,
       component: ContactView
     },
     {
       path: '/resume',
-      name: Command.RESUME,
+      name: Command.RESUME.name,
       component: ResumeView
     }
   ]

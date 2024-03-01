@@ -1,17 +1,17 @@
 <template>
-  <div class="w-96">
+  <div class="flex flex-col items-center">
     <pre>{{ topText }}</pre>
-    <div class="px-2">
-      <img :src="image" :class="['h-auto transition-opacity w-full', showImage ? 'opacity-100' : 'opacity-0']" />
-      <pre class="font-bold">{{ titleText }}</pre>
-      <pre class="whitespace-pre-wrap">{{ subtitleText }}</pre>
+    <div class="flex flex-col px-2 items-center w-[20rem]">
+      <img :src="image" :class="['h-auto transition-opacity', showImage ? 'opacity-100' : 'opacity-0']" />
+      <pre class="font-bold mt-2">{{ titleText }}</pre>
+      <pre class="whitespace-pre-wrap text-xs leading-none">{{ subtitleText }}</pre>
       <pre class="whitespace-pre-wrap">
 
 {{ descriptionText }}
     </pre
       >
     </div>
-    <div class="flex justify-center gap-14">
+    <div class="flex justify-center gap-8">
       <ascii-button ref="buttonOne" :label="buttonConfig[0].label" manual-display @click="buttonConfig[0].onClick" />
       <ascii-button v-if="buttonConfig.length === 2" ref="buttonTwo" :label="buttonConfig[1].label" manual-display @click="buttonConfig[1].onClick" />
     </div>
@@ -44,8 +44,8 @@ const descriptionText = ref('');
 const bottomText = ref('');
 const showImage = ref(false);
 
-const top = `,------------------------------------------,`;
-const bottom = `'------------------------------------------'`;
+const top = `,----------------------------------,`;
+const bottom = `'----------------------------------'`;
 
 // defineExpose({
 //   display: () => display(buildButtonContent(props.label), buttonContent, 50, false)
