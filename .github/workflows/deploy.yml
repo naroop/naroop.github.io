@@ -1,7 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch: # Allow manual trigger through GitHub UI
+  push:
+    branches: main
+  workflow_dispatch:
 
 permissions:
   contents: write
