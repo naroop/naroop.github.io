@@ -11,7 +11,7 @@
 
           <!-- Mobile -->
           <pre class="md:hidden leading-none">{{ mobileHeaderText }}</pre>
-          <pre class="md:hidden leading-none">{{ mobileLinesText }}</pre>
+          <pre class="md:hidden leading-none pb-2">{{ mobileLinesText }}</pre>
         </div>
         <div class="hidden md:flex gap-2 md:mb-4">
           <ascii-button ref="linkedInButton" label="LinkedIn" manual-display @click="openLinkedIn" />
@@ -29,7 +29,7 @@
         <input
           ref="input"
           class="bg-transparent focus:outline-none focus:ring-0 pl-4 pr-2 py-1 w-full border-b rounded-none border-b-green-500 border-dashed"
-          placeholder='type "menu" for options'
+          placeholder='"menu" for options'
           v-model="inputText"
           @keyup.enter="parse"
           @keyup.up.prevent="upPressed"
@@ -80,9 +80,9 @@ const mobileLines = `
 ////////////////////////////////////`;
 
 const mobileTerminalHeader = ` _ __   _ __
-| '_ \\ | '__|    Nathaniel Rupp
-| | | || |     
-|_| |_||_|    Full Stack Developer
+| '_ \\ | '__|  Nathaniel Rupp
+| | | || |
+|_| |_||_|  Full Stack Developer
 `;
 
 const pastCommands: Array<string> = [];
@@ -100,6 +100,8 @@ const parse = async () => {
   if (commandKey) {
     errorText.value = '';
     router.push({ name: Command[commandKey].name });
+  } else if (trimmed === '69') {
+    await display('nice.', errorText);
   } else {
     await display('Command not found. Type "menu" for options.', errorText);
   }
@@ -168,11 +170,11 @@ onMounted(async () => {
 
   if (mediaQuery.matches) {
     // desktop view
-    displayDesktop();
+    await displayDesktop();
     displayMobile();
   } else {
     // mobile view
-    displayMobile();
+    await displayMobile();
     displayDesktop();
   }
 

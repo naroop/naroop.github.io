@@ -72,7 +72,7 @@ const c2: Array<ImageAndCaption> = [
 const c3 = `> Technologies`;
 
 const showContent = async () => {
-  await display(c1, contentOne, 0);
+  await display(c1, contentOne, 25);
   for (let i = 0; i < c2.length; i++) {
     setTimeout(() => {
       contentTwo.value.push(c2[i]);
