@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center">
     <pre>{{ topText }}</pre>
     <div class="flex flex-col px-2 items-center w-[20rem]">
-      <img :src="image" :class="['h-auto transition-opacity', showImage ? 'opacity-100' : 'opacity-0']" />
+      <img :src="image" :class="['h-[14rem] transition-opacity', showImage ? 'opacity-100' : 'opacity-0']" />
       <pre class="font-bold mt-2">{{ titleText }}</pre>
       <pre class="whitespace-pre-wrap text-xs leading-none">{{ subtitleText }}</pre>
       <pre class="whitespace-pre-wrap">

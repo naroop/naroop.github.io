@@ -22,6 +22,7 @@ import snipbit from '@/assets/snipbit.png';
 import srh from '@/assets/srh.png';
 import tabs from '@/assets/tabs.png';
 import eoe from '@/assets/eoe.png';
+import civox from '@/assets/civox.png';
 
 interface AsciiCardConfig {
   image: string;
@@ -53,12 +54,22 @@ const c2: Array<AsciiCardConfig> = [
     ]
   },
   {
+    image: civox,
+    title: 'Civox',
+    subtitle: '[Vue, TypeScript, Tailwind, PocketBase]',
+    description: 'A community-driven web application to provide feedback on local construction projects.',
+    buttonConfig: [
+      { label: 'View Repo', onClick: () => window.open('https://github.com/gimgine/civox', '_blank') },
+      { label: 'Try it Out', onClick: () => window.open('https://civox.pockethost.io/#/', '_blank') }
+    ]
+  },
+  {
     image: srh,
     title: 'Stardew Relationship Helper',
     subtitle: '[Vue, TypeScript, Tailwind]',
     description: 'An interactive web application for users to track relationships in Stardew Valley.',
     buttonConfig: [
-      { label: 'More Info', onClick: () => window.open('https://github.com/gimgine/stardew-relationship-helper', '_blank') },
+      { label: 'View Repo', onClick: () => window.open('https://github.com/gimgine/stardew-relationship-helper', '_blank') },
       { label: 'Try it Out', onClick: () => window.open('https://gimgine.github.io/stardew-relationship-helper/#/tracker', '_blank') }
     ]
   },
@@ -67,7 +78,10 @@ const c2: Array<AsciiCardConfig> = [
     title: 'Tabs',
     subtitle: '[React Native, MongoDB, Express.js]',
     description: 'An iOS application targeting drunk driving prevention and nightlife safety.',
-    buttonConfig: [{ label: 'More Info', onClick: () => window.open('https://devpost.com/software/tabs-sc6dxz', '_blank') }]
+    buttonConfig: [
+      { label: 'View Repo', onClick: () => window.open('https://github.com/gimgine/tabs', '_blank') },
+      { label: 'More Info', onClick: () => window.open('https://devpost.com/software/tabs-sc6dxz', '_blank') }
+    ]
   },
   {
     image: eoe,
