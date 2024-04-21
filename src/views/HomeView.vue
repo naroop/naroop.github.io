@@ -10,7 +10,7 @@ import { onMounted, ref, watch } from 'vue';
 const contentOne = ref('');
 
 const c1 = `
-Hello! Welcome to my portfolio website. Pretend you are an 80's hacker while you navigate the site.
+Hello! Welcome to my portfolio website.
 
 Type "menu" below, then press enter.
 `;
