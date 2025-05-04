@@ -39,16 +39,16 @@ const c1 = `
 +-+-+-+-+-+
 
 -- Who am I? --
-I am a full-stack developer with 2 years of professional experience.
+I am a full-stack developer with 3 years of professional experience.
 
 -- Education --
-I am a senior at the University of Missouri, pursuing a major in Computer Science with a minor in Mathematics.
+Bachelor of Science in Computer Science, with a minor in Mathematics from the University of Missouri.
 
 -- Current Position --
-I work part time as a Junior Software Developer at O'Reilly Auto Parts.
+Software Developer I at O'Reilly Auto Parts.
 
 -- Development Experience --
-Front-end web development, back-end development, mobile development, database/server management, cloud engineering, application architecture, and game development.
+Front-end web development, back-end development, mobile development, database & server management, cloud computing, and game development.
 
 -- What do I know? --
 
